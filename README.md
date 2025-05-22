@@ -23,3 +23,8 @@ Ahora hablando de errores, me parece que si el código se implementa bien, el  p
 
 
 
+En el segundo avance se agregaron las clases para el funcionamiento del juego y un main para que se pueda correr aunque sea este pedazo del juego, si bien la historia no está completa se le da a todo aquel que llegue a este repositorio una idea de como es el juego, en donde se le presenta al usuario una situación y el escoge que hace para ir acumulando XP y llegar a un resultado donde se le evalua por el personaje ProfeBenji. De igual manera se hacen correcciones en el readme que se mencionaron en la primera entrega y de igual manera s emodifica el UML para agregar setters y getters que faltaron en el primer avance y las correcciones que se dieron en la retro del primer avance. 
+
+:)
+
+
