@@ -18,7 +18,11 @@ Otra clase es la que administra y lleva el conteo de los puntos de experiencia q
 
 Ahora hablando de errores, me parece que si el código se implementa bien, el  principal error que yo pude determinar es: 
 * Que el jugador seleccione opciones inválidas en las escenas
-  Ya que de esta manera, realmente el programa se estancara y marcaría error. 
+  Ya que de esta manera, realmente el programa se estancara y marcaría error.
+  Ahora bien conforme han pasado los avances, he determinado que otros posibles errores podrían ser
+  * Un mal manejo d epunteros y destructores, ya que de esta manera el programa consume más memoria.
+  * Que el jugador acumule XP negativo de manera desmedida, esto no tendría lógica al final del juego.
+  * En Clion ( donde corro mi programa) introducir nombre con caracteres especiales como acentos puede resultar en un output sin formato ya que esos valores no los reconoce ( por eso en este programa muchas palabras omiten acentos )
 
 
 
