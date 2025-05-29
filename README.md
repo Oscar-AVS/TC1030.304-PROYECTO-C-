@@ -25,6 +25,8 @@ Ahora hablando de errores, me parece que si el código se implementa bien, el  p
 
 En el segundo avance se agregaron las clases para el funcionamiento del juego y un main para que se pueda correr aunque sea este pedazo del juego, si bien la historia no está completa se le da a todo aquel que llegue a este repositorio una idea de como es el juego, en donde se le presenta al usuario una situación y el escoge que hace para ir acumulando XP y llegar a un resultado donde se le evalua por el personaje ProfeBenji. De igual manera se hacen correcciones en el readme que se mencionaron en la primera entrega y de igual manera s emodifica el UML para agregar setters y getters que faltaron en el primer avance y las correcciones que se dieron en la retro del primer avance. 
 
+En este tercer avance se modificaron solamente la clase padre : Personaje así cómo sus dos clases hijas (Jugador y ProfeBenji) así cómo el main para poder implementar el polimorfismo, este cambio crea un método virtual en la clase padre donde se busca dar un mensaje de salida al finalizar el juego, este mensaje depende de cada clase expresa el XP finl del Jugador y el ánimo del Profesor al finalizar. De igual manera en cada clase se actualizó los comentarios. Aún falta ir implementando más escenas principales y escenas secundarias para que sea el juego más secuencial y tenga diferentes caminos. 
+
 :)
 
 
