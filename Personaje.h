@@ -1,6 +1,7 @@
 // Este es el progrma creado para la clase "Personaje.h" En esta clase se crea a un Personaje "X" o "Y" esta clase e sla padre de distintas clases que vienenen en el juego, en esta clase solo se  guarda el nombre y como se menciono es  base para personajes como el jugador o el profesor. 
 // Creado por: Oscar Alexander Vilchis Soto (A01713207)
 // Creado el 20/05/2025
+// Modificado el 28/05/2025 Para el tercer avance s eincluyó el polimorfismo agregando  un método virtual `reaccionar()`, de igual manera se añade destructor para que se pueda liberar memoria eliminandno objetos  
 
 
 #ifndef PERSONAJE_H
@@ -18,6 +19,9 @@ public:
 
     string getNombre() const { return nombre; } // getter que devuelve el nombre se utiliza const para indicar que no se puede modificar el nombre
     void setNombre(const string& nuevoNombre) { nombre = nuevoNombre; } // setter que cambia el nombre 
+ virtual void reaccionar() {
+        cout << "Mi Xp en este periodo / estado de animo con este alumno fue :  " ; // Solo se coloca una frase generica que después se sobreescribe en cada clase hija
+    }
 };
 
 #endif
