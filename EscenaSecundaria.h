@@ -1,3 +1,8 @@
+// Este es el programa creado para la clase "EscenaSecundaria.h". Define una escena secundaria que se activa con ciertas decisiones del jugador, mostrando un mensaje adicional al jugador.
+// Creado por: Oscar Alexander Vilchis Soto (A01713207)
+// Creado el 20/05/2025
+// Modificado el 28/05/2025: De igual manera, en esta clase no se realizaron cambios en este tercer avance 
+
 #ifndef ESCENASECUNDARIA_H
 #define ESCENASECUNDARIA_H
 
