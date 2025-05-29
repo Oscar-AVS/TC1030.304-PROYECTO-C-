@@ -1,3 +1,7 @@
+// Este es el programa creado para la clase "Capitulo.h" Esta clase es en donde se agrupan  varias escenas principales de manera que permita una ejecución secuencial.
+// Creado por: Oscar Alexander Vilchis Soto (A01713207)
+// Creado el 20/05/2025
+// Modificado el 28/05/2025 en este tercer avance no se cambió nada de la estructura o el código todo se mantiene igual
 #ifndef CAPITULO_H
 #define CAPITULO_H
 
