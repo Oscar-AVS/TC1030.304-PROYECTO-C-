@@ -1,3 +1,9 @@
+// Este es el programa creado para la clase "EscenaPrincipal.h" en esta clase se representa las distintas escenas principales del juego donde el jugador toma decisiones que afectan su XP y pueden activar escenas secundarias.
+// Creado por: Oscar Alexander Vilchis Soto (A01713207)
+// Creado el 20/05/2025
+// Modificado el 28/05/2025: Para este tercer avance, no se realizó ningún cambio 
+
+
 #ifndef ESCENAPRINCIPAL_H
 #define ESCENAPRINCIPAL_H
 
