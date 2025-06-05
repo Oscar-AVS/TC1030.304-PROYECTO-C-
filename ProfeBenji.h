@@ -25,11 +25,11 @@ public:
         int xp = jugador.getXp();
         if (xp >= 50) {
             estadoAnimo = "Feliz";
-            frase = "¡chevere, muy bien!";
+            frase = "chevere, muy bien";
         }
         else if (xp >= 30) {
             estadoAnimo = "Neutral";
-            frase = "Vas bien, saca todas las dudas";
+            frase = " saca todas las dudas";
         }
         else {
             estadoAnimo = "Molesto";
