@@ -1,27 +1,42 @@
 // Este es el progrma creado para la clase "Personaje.h" En esta clase se crea a un Personaje "X" o "Y" esta clase e sla padre de distintas clases que vienenen en el juego, en esta clase solo se  guarda el nombre y como se menciono es  base para personajes como el jugador o el profesor. 
 // Creado por: Oscar Alexander Vilchis Soto (A01713207)
 // Creado el 20/05/2025
-// Modificado el 28/05/2025 Para el tercer avance s eincluyó el polimorfismo agregando  un método virtual `reaccionar()`, de igual manera se añade destructor para que se pueda liberar memoria eliminandno objetos  
+// Modificado el 28/05/2025 Para el tercer avance se incluyó el polimorfismo agregando  un método virtual `reaccionar()`, de igual manera se añade destructor para que se pueda liberar memoria eliminandno objetos  
 
 
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
 
-#include <string>
-using namespace std;
+#include <string>                    
+#include <iostream>                  
+using namespace std;                 
 
+// Clase base abstracta para cualquier personaje en el juego
 class Personaje {
-protected: // Método de acceso que permite a las clases hijas (jugador y profebenji) acceder a estos atributos de manera directa.
-    string nombre; // Atributo que guarda el nombre ingresado del usuario (personaje)
+protected:                               // Miembros protegidos (herencia)
+    string nombre;                       // Nombre del personaje
+    int amistadBecario;                  // Nivel de amistad con el becario
 
-public: 
-    Personaje(string nombre) : nombre(nombre) {} // Este es el constructor que recibe el nombre como su parametro y lo guardan en el atributo mencionado
+public:                                  // Miembros públicos
+    // Constructor: inicializa el nombre y el nivel de amistad con el becario en 0
+    Personaje(string nombre) : nombre(nombre), amistadBecario(0) {}
 
-    string getNombre() const { return nombre; } // getter que devuelve el nombre se utiliza const para indicar que no se puede modificar el nombre
-    void setNombre(const string& nuevoNombre) { nombre = nuevoNombre; } // setter que cambia el nombre 
- virtual void reaccionar() {
-        cout << "Mi Xp en este periodo / estado de animo con este alumno fue :  " ; // Solo se coloca una frase generica que después se sobreescribe en cada clase hija
-    }
+    // Destructor virtual: permite destrucción correcta de objetos derivados
+    virtual ~Personaje() {}
+
+    string getNombre() const { return nombre; }
+
+    // Cambia el nombre del personaje
+    void setNombre(const string& nuevoNombre) { nombre = nuevoNombre; }
+
+    // Suma (o resta si es negativo) al nivel de amistad con el becario
+    void mejorarRelacionBecario(int cantidad) { amistadBecario += cantidad; }
+
+    // Consulta el nivel de amistad con el becario
+    int getAmistadBecario() const { return amistadBecario; }
+
+    // Método virtual puro (abstracto): obliga a las hijas a implementarlo
+    virtual void reaccionar() = 0;
 };
 
-#endif
+#endif                                 
