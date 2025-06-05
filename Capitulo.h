@@ -5,7 +5,6 @@
 #ifndef CAPITULO_H
 #define CAPITULO_H
 
-#include <vector>
 #include <string>
 #include <iostream>
 #include "EscenaPrincipal.h"
@@ -13,31 +12,41 @@ using namespace std;
 
 class Capitulo {
 private:
-    int numero;
-    string titulo;
-    vector<EscenaPrincipal*> escenas;
+    int numero;                          // Número del capítulo
+    string titulo;                       // Título del capítulo
+    static const int MAX_ESCENAS = 5;    // Máximo de escenas por capítulo
+    EscenaPrincipal* escenas[MAX_ESCENAS]; // Arreglo de punteros a escenas
+    int numEscenas;                      // Contador de escenas agregadas
 
 public:
-    Capitulo(int numero, const string& titulo) : numero(numero), titulo(titulo) {}
+    // Constructor: inicializa el número, título y contador
+    Capitulo(int numero, const string& titulo) : numero(numero), titulo(titulo), numEscenas(0) {}
 
+    // Destructor: libera la memoria de las escenas
     ~Capitulo() {
-        for (auto escena : escenas) delete escena;
+        for (int i = 0; i < numEscenas; ++i)
+            delete escenas[i];
     }
 
     void agregarEscena(EscenaPrincipal* escena) {
-        escenas.push_back(escena);
-    }
-
-    void ejecutar(Jugador& jugador) {
-        for (auto escena : escenas) {
-            escena->mostrar();
-            int opcion;
-            cout << "Elige una opcion: ";
-            cin >> opcion;
-            escena->elegirOpcion(opcion, jugador);
+        if (numEscenas < MAX_ESCENAS) {
+            escenas[numEscenas] = escena;
+            numEscenas++;
         }
     }
 
+    // Ejecuta las escenas del capítulo una por una
+    void ejecutar(Jugador& jugador) {
+        for (int i = 0; i < numEscenas; ++i) {
+            escenas[i]->mostrar();
+            int opcion;
+            cout << "Elige: ";
+            cin >> opcion;
+            escenas[i]->elegirOpcion(opcion, jugador);
+        }
+    }
+
+    // Devuelve el título del capítulo
     string getTitulo() const { return titulo; }
 };
 
