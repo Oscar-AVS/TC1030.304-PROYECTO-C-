@@ -10,19 +10,24 @@
 
 #include "Jugador.h"
 #include <iostream>
+using namespace std;
 
+// Clase que permite modificar y mostrar el XP del jugador
 class RegistroXP {
 private:
-    Jugador* jugador;
+    Jugador* jugador;  // Puntero al jugador a quien se le lleva el registro
 
 public:
+    // Constructor: asocia el registro a un jugador
     RegistroXP(Jugador* jugador) : jugador(jugador) {}
 
+    // Modifica el XP
     void modificarXP(int cantidad) {
         if (cantidad >= 0) jugador->ganarXp(cantidad);
         else jugador->perderXp(-cantidad);
     }
 
+    // Muestra el XP actual
     void mostrarXP() const {
         cout << "XP actual: " << jugador->getXp() << endl;
     }
