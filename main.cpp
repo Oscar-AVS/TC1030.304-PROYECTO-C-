@@ -61,6 +61,7 @@ int main() {
 
 // aqui se implementa el polimorifsmo, se usan punteros a la clase padre "personaje" para llamar al métod Personaje* pJugador = &jugador;    Personaje* pJugador = &jugador;
     Personaje* pProfe = &profe;
+    Personaje* pJugador = &jugador;
 
     pJugador->reaccionar();
     pProfe->reaccionar();
