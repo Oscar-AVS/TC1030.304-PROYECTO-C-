@@ -31,6 +31,8 @@ En el segundo avance se agregaron las clases para el funcionamiento del juego y 
 
 En este tercer avance se modificaron solamente la clase padre : Personaje así cómo sus dos clases hijas (Jugador y ProfeBenji) así cómo el main para poder implementar el polimorfismo, este cambio crea un método virtual en la clase padre donde se busca dar un mensaje de salida al finalizar el juego, este mensaje depende de cada clase expresa el XP finl del Jugador y el ánimo del Profesor al finalizar. De igual manera en cada clase se actualizó los comentarios. Aún falta ir implementando más escenas principales y escenas secundarias para que sea el juego más secuencial y tenga diferentes caminos. 
 
+En este último avance, siendo el cuarto, se modifico mucho el código y sus clases, para empezar se terminó de hacer toda la historia que va a seguir el juego, lo pueden encontrar en este gooogle doc --> https://docs.google.com/document/d/162RAkrbDA-xwp66raO3Uqjcco1M4VEpmULO9o8yaJDo/edit?usp=sharing En este documento fue como "el borrador" para el código, ahí viene muy superficial las clases que tenía en mente para Jugador y Profesor y como mencioné hace un momento, la narrativa completa del juego. Una vez dicho esto, se tuvieron que realizar cambios en practicamente todas las clases, de igual manera en la clase Personaje, se añadió otro atributo para que se llevara un registro de una amistad con un becario. De igual manera se incluyen 
+
 :)
 
 
