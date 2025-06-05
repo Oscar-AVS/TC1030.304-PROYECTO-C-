@@ -54,13 +54,12 @@ int main() {
     }
 
     jugador.asignarResultado();
-    cout << "\nResumen de " << jugador.getNombre() << ":\n";
-    cout << "XP acumulado: " << jugador.getXp() << "\n";
-    cout << "Resultado: " << jugador.getResultadoFinal() << "\n";
+    cout << "\nInge  " << jugador.getNombre() << ":\n";
+    cout << "En esta meatira te fue:  " << jugador.getResultadoFinal() << "\n";
 
     profe.reaccionar(jugador);
 
-// aqui se implementa el polimorifsmo, se usan punteros a la clase padre "personaje" para llamar al métod    Personaje* pJugador = &jugador;
+// aqui se implementa el polimorifsmo, se usan punteros a la clase padre "personaje" para llamar al métod Personaje* pJugador = &jugador;    Personaje* pJugador = &jugador;
     Personaje* pProfe = &profe;
 
     pJugador->reaccionar();
