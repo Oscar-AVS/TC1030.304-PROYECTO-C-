@@ -7,7 +7,7 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
 
-#include "Personaje.h"   
+#include "Personaje.h"   // Incluye la definición de la clase base
 
 // Clase Jugador: hereda de Personaje y representa al usuario que juega
 class Jugador : public Personaje {
@@ -29,7 +29,7 @@ public:
     void asignarResultado() {
         if (xp >= 50) resultadoFinal = "Super, Te fue muy bien sacaste 10";
         else if (xp >= 30) resultadoFinal = "Bien pero puedes hacerlo mejor, pasaste con 8";
-        else resultadoFinal = "Suerte a la proxima reprobaste con 6.9";
+        else resultadoFinal = "mal, mejor suerte  a la proxima reprobaste con 6.9";
     }
 
     // Devuelve el XP actual
@@ -43,7 +43,7 @@ public:
 
     // Implementa el método virtual puro reaccionar() (muestra el XP)
     void reaccionar() override {
-        cout << "Obtuve:  " << xp << "XP"<< endl;
+        cout << "Total :  " << xp << "XP"<< endl;
     }
 };
 
