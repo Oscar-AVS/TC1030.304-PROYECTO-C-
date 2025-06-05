@@ -24,6 +24,7 @@ public:                                  // Miembros públicos
     // Destructor virtual: permite destrucción correcta de objetos derivados
     virtual ~Personaje() {}
 
+    // Devuelve el nombre del personaje
     string getNombre() const { return nombre; }
 
     // Cambia el nombre del personaje
@@ -39,4 +40,4 @@ public:                                  // Miembros públicos
     virtual void reaccionar() = 0;
 };
 
-#endif                                 
+#endif                                  
