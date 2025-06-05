@@ -10,41 +10,66 @@
 #include "RegistroXP.h"
 #include "Capitulo.h"
 #include "EscenaPrincipal.h"
+#include "EscenaSecundaria.h"
 using namespace std;
 
 int main() {
     string nombre;
-    cout << "Bienvenido al juego interactivo 'POV: Eres ITC'" << endl;
+    cout << "Bienvenido al juego interactivo 'POV: Eres ITC. \nLo que decidas afectara en tu caliicacion final, asi que escoge bien \ny en el camino asegurate de caerle bien al profe benji" << endl;
     cout << "Para poder empezar, di tu nombre inge: ";
     getline(cin, nombre);
 
+    // Se crea el jugador y el profe Benji
     Jugador jugador(nombre);
     ProfeBenji profe("Benji");
     RegistroXP registro(&jugador);
 
-    Capitulo capitulo1(1, "Primer dia ");
-    vector<EscenaPrincipal*> escenas = EscenaPrincipal::cargarEscenas();
+    // CAPÍTULO 1
+    Capitulo* capitulo1 = new Capitulo(1, "Semana 1");
+    capitulo1->agregarEscena(new EscenaPrincipal(1)); // Escena 1
+    capitulo1->agregarEscena(new EscenaPrincipal(2)); // Escena 2
+    capitulo1->agregarEscena(new EscenaPrincipal(3)); // Escena 3
+    cout << "\nCapitulo 1: " << capitulo1->getTitulo() << "\n";
+    capitulo1->ejecutar(jugador);
 
-    for (auto escena : escenas)
-        capitulo1.agregarEscena(escena);
+    // CAPÍTULO 2
+    Capitulo* capitulo2 = new Capitulo(2, "Semanas 2 y 3");
+    capitulo2->agregarEscena(new EscenaPrincipal(4)); // Escena 4
+    capitulo2->agregarEscena(new EscenaPrincipal(5)); // Escena 5
+    cout << "\nCapitulo 2: " << capitulo2->getTitulo() << "\n";
+    capitulo2->ejecutar(jugador);
 
-    cout << "\nCapitulo 1 " << capitulo1.getTitulo() << "\n";
-    capitulo1.ejecutar(jugador);
+    // CAPÍTULO 3
+    Capitulo* capitulo3 = new Capitulo(3, "Semana 4 y 5");
+    capitulo3->agregarEscena(new EscenaPrincipal(6)); // Escena 6
+    capitulo3->agregarEscena(new EscenaPrincipal(7)); // Escena 7
+    capitulo3->agregarEscena(new EscenaPrincipal(8)); // Escena 8
+    cout << "\nCapitulo 3: " << capitulo3->getTitulo() << "\n";
+    capitulo3->ejecutar(jugador);
+
+    // BONUS: Si la relación con el becario fue buena (+4), gana 10 XP extra
+    if (jugador.getAmistadBecario() >= 4) {
+        cout << "\nTu amistad con el becario te ayuda, ganas 10XP extra.\n";
+        jugador.ganarXp(10);
+    }
 
     jugador.asignarResultado();
-    cout << "\nResumen final para " << jugador.getNombre() << ":\n";
+    cout << "\nResumen de " << jugador.getNombre() << ":\n";
     cout << "XP acumulado: " << jugador.getXp() << "\n";
     cout << "Resultado: " << jugador.getResultadoFinal() << "\n";
 
     profe.reaccionar(jugador);
 
-    // aqui se implementa el polimorifsmo, se usan punteros a la clase padre "personaje" para llamar al método
-    Personaje* pJugador = &jugador;
+// aqui se implementa el polimorifsmo, se usan punteros a la clase padre "personaje" para llamar al métod    Personaje* pJugador = &jugador;
     Personaje* pProfe = &profe;
 
     pJugador->reaccionar();
     pProfe->reaccionar();
 
     cout << "\nGracias por jugar " << endl;
+
+    delete capitulo1;
+    delete capitulo2;
+    delete capitulo3;
     return 0;
 }
