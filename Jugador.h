@@ -4,36 +4,46 @@
 // Modificado el 28/05/2025 Para este tercer avance de manera que pudiera integrar polimorfismo a mi proyecto, se  sobrescribió el método `reaccionar()` de la clase padre  para mostrar información personalizada del jugador ( un breve mensaje del jugador al finalizar el juego)
 
 
-
 #ifndef JUGADOR_H
 #define JUGADOR_H
 
-#include "Personaje.h"
+#include "Personaje.h"   
 
-class Jugador : public Personaje { //Se establece que es clase hija de Personaje y hereda sus atributos y métodos 
+// Clase Jugador: hereda de Personaje y representa al usuario que juega
+class Jugador : public Personaje {
 private:
-    int xp; // Puntos de experiencia que acumula el juagador 
-    string resultadoFinal; // Texto que dice al usuario si aprueba o no
+    int xp;                // Puntos de experiencia acumulados
+    string resultadoFinal; // Mensaje final sobre el desempeño
 
 public:
-    Jugador(string nombre) : Personaje(nombre), xp(0), resultadoFinal("") {} // se manda llamar el contructor de la clase padre para el nombrey se le asigna el valor de 0 puntos XP al inicar el jeugo
+    // Constructor: recibe el nombre y llama al constructor base, inicia XP en 0 y resultado vacío
+    Jugador(string nombre) : Personaje(nombre), xp(0), resultadoFinal("") {}
 
-// Métodos que modifican el XP 
+    // Suma cantidad a XP
     void ganarXp(int cantidad) { xp += cantidad; }
+
+    // Resta cantidad a XP; si queda negativo, lo pone en 0
     void perderXp(int cantidad) { xp -= cantidad; if (xp < 0) xp = 0; }
 
-//Métodos que determinan el resultado final con base al valor de XP acumulado
+    // Calcula el resultado final dependiendo del XP obtenido
     void asignarResultado() {
-        if (xp >= 30) resultadoFinal = "Super, pasaste con 10";
-        else if (xp >= 15) resultadoFinal = "Bien pero puedes hacerlo mejor, pasar con 8";
-        else resultadoFinal = "Venga, toma la materia otra vez, reprobaste con 6.9";
+        if (xp >= 50) resultadoFinal = "Super, Te fue muy bien sacaste 10";
+        else if (xp >= 30) resultadoFinal = "Bien pero puedes hacerlo mejor, pasaste con 8";
+        else resultadoFinal = "Suerte a la proxima reprobaste con 6.9";
     }
 
-    int getXp() const { return xp; } // Getter para obtener el valor de xp y regresa un numero sin modificar ningun atributo
-    string getResultadoFinal() const { return resultadoFinal; } // Getter que permite ver el texto que arroja el juego dependiendo del resultado
-    void setResultadoFinal(const string& resultado) { resultadoFinal = resultado; } // Setter que permite asigar de manera manual el resultado
-void reaccionar() override {
-        cout << "Mi XP en esta materia fue  "  << xp << endl;
+    // Devuelve el XP actual
+    int getXp() const { return xp; }
+
+    // Devuelve el resultado final en texto
+    string getResultadoFinal() const { return resultadoFinal; }
+
+    // Permite establecer manualmente el resultado final
+    void setResultadoFinal(const string& resultado) { resultadoFinal = resultado; }
+
+    // Implementa el método virtual puro reaccionar() (muestra el XP)
+    void reaccionar() override {
+        cout << "Obtuve:  " << xp << "XP"<< endl;
     }
 };
 
