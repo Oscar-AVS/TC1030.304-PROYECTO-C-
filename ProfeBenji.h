@@ -3,33 +3,33 @@
 // Creado el 20/05/2025
 // Modificado el 28/05/2025 Para el tercer avance igual que a la clase Jugado, se añadió el método `reaccionar()` como sobrescritura  del método virtual en la clase base "Personaje"
 
-
 #ifndef PROFEBENJI_H
 #define PROFEBENJI_H
 
-
 #include "Jugador.h"
+#include <iostream>
+using namespace std;
 
-class ProfeBenji : public Personaje { // Define la clase ProfeBenji  que hereda de la clase Personaje
-
-private: // Método de acceso en la que nadie puede acceder al  estado de ánimo del profesor y su frase 
-    string estadoAnimo;
-
-    string frase;
+// Clase ProfeBenji: representa al profe, hereda de Personaje
+class ProfeBenji : public Personaje {
+private:
+    string estadoAnimo;  // Estado de ánimo del profe (según desempeño del jugador)
+    string frase;        // Frase del profe según desempeño
 
 public:
+    // Constructor: recibe el nombre, inicializa estado y frase
     ProfeBenji(string nombre) : Personaje(nombre), estadoAnimo("Neutral"), frase("chevere :)") {}
 
-  
+    // Método para actualizar estado de ánimo y frase según XP del jugador
+    void reaccionar(Jugador& jugador) {
         int xp = jugador.getXp();
-
-        if (xp >= 30) {
+        if (xp >= 50) {
             estadoAnimo = "Feliz";
-            frase = "chevere ";
+            frase = "¡chevere, muy bien!";
         }
-        else if (xp >= 10) {
+        else if (xp >= 30) {
             estadoAnimo = "Neutral";
-            frase = "Vas bien, saca todas las dudas ";
+            frase = "Vas bien, saca todas las dudas";
         }
         else {
             estadoAnimo = "Molesto";
@@ -37,11 +37,14 @@ public:
         }
     }
 
+    // Devuelve el estado de ánimo
     string getEstadoAnimo() const { return estadoAnimo; }
-
+    // Devuelve la frase
     string getFrase() const { return frase; }
+
+    // Implementa el método virtual puro reaccionar() (muestra mensaje)
     void reaccionar() override {
-        cout << "Este alumno me deja  " <<  ": " << estadoAnimo << ", " << frase << endl;
+        cout << "Profe benji esta: " << estadoAnimo << ", " << frase << endl;
     }
 };
 
